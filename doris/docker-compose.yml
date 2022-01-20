@@ -117,6 +117,16 @@ services:
       - sgcc-network
     restart: always
 
+  kettle:
+    image: registry.cn-qingdao.aliyuncs.com/dataease/kettle:8.3
+    container_name: kettle
+    volumes:
+      - ./kettle/conf/:/opt/dataease/conf
+      - ./kettle-data:/opt/dataease/data/kettle
+    networks:
+      - sgcc-network
+    restart: always
+
 networks:
   sgcc-network:
     external: true
