@@ -1,0 +1,122 @@
+version: '3.7'
+services:
+
+  doris-fe:
+    build:
+      context: docker-build
+      dockerfile: Dockerfile
+    container_name: doris-fe
+    environment:
+      - DORIS_ROLE=fe-leader
+      - FE_ROLE=fe-leader
+    volumes:
+      - "./data/fe/log:/home/doris/fe/log"
+      - "./data/fe/doris-meta:/home/doris/fe/doris-meta"
+      - "./data/fe/conf:/home/doris/fe/conf"
+      - /etc/localtime:/etc/localtime
+    network_mode: "host"
+    security_opt:
+      - seccomp:unconfined
+    restart: always
+
+  doris-fe-follower:
+    build:
+      context: docker-build
+      dockerfile: Dockerfile
+    container_name: doris-fe-follower
+    environment:
+      - DORIS_ROLE=fe-follower
+      - DORIS_LEADER=192.168.0.186:9010
+      - FE_ROLE=fe-follower
+      - FE_LEADER=192.168.0.186:9010
+    volumes:
+      - "./data/fe/log:/home/doris/fe/log"
+      - "./data/fe/doris-meta:/home/doris/fe/doris-meta"
+      - "./data/fe/conf:/home/doris/fe/conf"
+      - /etc/localtime:/etc/localtime
+    network_mode: "host"
+    security_opt:
+      - seccomp:unconfined
+    restart: always
+
+  doris-be:
+    build:
+      context: docker-build
+      dockerfile: Dockerfile
+    container_name: doris-be
+    environment:
+      - DORIS_ROLE=be
+      - FE_ROLE=be
+    volumes:
+      - "./data/be/log:/home/doris/be/log"
+      - "./data/be/storage:/home/doris/be/storage"
+      - "./data/be/conf:/home/doris/be/conf/"
+      - /etc/localtime:/etc/localtime
+    network_mode: "host"
+    restart: always
+
+  doris-broker:
+    build:
+      context: docker-build
+      dockerfile: Dockerfile
+    container_name: doris-broker
+    environment:
+      - DORIS_ROLE=broker
+      - FE_ROLE=broker
+    volumes:
+      - "./data/fs_broker/log:/home/doris/fs_broker/log"
+      - "./data/fs_broker/conf:/home/doris/fs_broker/conf"
+      - /etc/localtime:/etc/localtime
+    network_mode: "host"
+    restart: always
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - /etc/localtime:/etc/localtime
+    networks:
+      - sgcc-network
+    restart: always
+
+  grafana-mysql80:
+    image: mysql:8.0
+    container_name: grafana-mysql
+    ports:
+      - "3306:3306"
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/init-sql:/docker-entrypoint-initdb.d
+      - /etc/localtime:/etc/localtime
+    networks:
+      - sgcc-network
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./grafana/grafana.ini:/etc/grafana/grafana.ini"
+      # - "./grafana/data:/var/lib/grafana"
+      - /etc/localtime:/etc/localtime
+    depends_on:
+      - grafana-mysql80
+    networks:
+      - sgcc-network
+    restart: always
+
+networks:
+  sgcc-network:
+    external: true

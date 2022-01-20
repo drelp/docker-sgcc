@@ -1,0 +1,26 @@
+# my global config
+global:
+  scrape_interval:     15s # 全局的采集间隔，默认是 1m，这里设置为 15s
+  evaluation_interval: 15s # 全局的规则触发间隔，默认是 1m，这里设置 15s
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "SGCC_CLUSTER" # 每一个 Doris 集群，我们称为一个 job。这里可以给 job 取一个名字，作为 Doris 集群在监控系统中的名字。
+    metrics_path: "/metrics" # 这里指定获取监控项的 restful api。配合下面的 targets 中的 host:port，Prometheus 最终会通过 host:port/metrics_path 来采集监控项。
+    static_configs: # 这里开始分别配置 FE 和 BE 的目标地址。所有的 FE 和 BE 都分别写入各自的 group 中。
+      - targets: ["10.50.10.27:8030"]
+        labels:
+          group: fe # 这里配置了 fe 的 group，该 group 中包含了 3 个 Frontends
+
+      - targets: ["10.50.10.27:8040"]
+        labels:
+          group: be # 这里配置了 be 的 group，该 group 中包含了 3 个 Backends
