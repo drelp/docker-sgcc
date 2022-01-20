@@ -118,7 +118,7 @@ services:
     restart: always
 
   kettle:
-    image: registry.cn-qingdao.aliyuncs.com/dataease/kettle:8.3
+    image: registry.cn-qingdao.aliyuncs.com/dataease/kettle:8.3-v1.6
     container_name: kettle
     volumes:
       - ./kettle/conf/:/opt/dataease/conf
