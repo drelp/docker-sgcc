@@ -120,7 +120,7 @@ services:
     restart: always
 
   sgcc-mysql:
-    image: registry.cn-qingdao.aliyuncs.com/dataease/mysql:5.7.25
+    image: yiluxiangbei/mysql:5.7.25
     container_name: sgcc-mysql
     ports:
       - 3316:3306

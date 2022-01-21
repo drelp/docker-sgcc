@@ -19,6 +19,8 @@ sgcc
 ALTER SYSTEM ADD BACKEND "10.50.10.27:9050";
 SHOW PROC '/backends';
 
+CREATE DATABASE sgcc;
+
 http://10.50.10.27:8030/login
 root
 sgcc
