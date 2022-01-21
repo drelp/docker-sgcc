@@ -46,4 +46,14 @@ CREATE TABLE `session` (
     PRIMARY KEY (`key`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+sudo docker-compose up -d grafana
+
+http://10.50.10.27:3000
+admin
+admin
+
+sgcc2022
+
+add datasource
+import json file
 ```
