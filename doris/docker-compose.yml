@@ -2,9 +2,7 @@ version: '3.7'
 services:
 
   doris-fe:
-    build:
-      context: docker-build
-      dockerfile: Dockerfile
+    image: yiluxiangbei/doris-sgcc:v1.0
     container_name: doris-fe
     environment:
       - DORIS_ROLE=fe-leader
@@ -20,9 +18,7 @@ services:
     restart: always
 
   doris-fe-follower:
-    build:
-      context: docker-build
-      dockerfile: Dockerfile
+    image: yiluxiangbei/doris-sgcc:v1.0
     container_name: doris-fe-follower
     environment:
       - DORIS_ROLE=fe-follower
@@ -40,9 +36,7 @@ services:
     restart: always
 
   doris-be:
-    build:
-      context: docker-build
-      dockerfile: Dockerfile
+    image: yiluxiangbei/doris-sgcc:v1.0
     container_name: doris-be
     environment:
       - DORIS_ROLE=be
@@ -56,9 +50,7 @@ services:
     restart: always
 
   doris-broker:
-    build:
-      context: docker-build
-      dockerfile: Dockerfile
+    image: yiluxiangbei/doris-sgcc:v1.0
     container_name: doris-broker
     environment:
       - DORIS_ROLE=broker
