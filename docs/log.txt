@@ -1,0 +1,248 @@
+sgcc                 | 2022-01-21 15:20:55,025 ERROR flywaydb.core.internal.command.DbMigrate:  57 - Migration of schema `dataease` to version "8 - demo" failed! Please restore backups and roll back database and code!
+sgcc                 | 2022-01-21 15:20:55,038  WARN ConfigServletWebServerApplicationContext: 590 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception
+is org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException:
+sgcc                 | Migration V8__demo.sql failed
+sgcc                 | -----------------------------
+sgcc                 | SQL State  : HY000
+sgcc                 | Error Code : 1267
+sgcc                 | Message    : Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+sgcc                 | Location   : db/migration/V8__demo.sql (/deployments/file:/opt/apps/backend-1.6.0.jar!/BOOT-INF/classes!/db/migration/V8__demo.sql)
+sgcc                 | Line       : 41
+sgcc                 | Statement  : INSERT INTO  `datasource` (`id`, `name`, `desc`, `type`, `configuration`, `create_time`, `update_time`, `create_by`) VALUES ('76026997-94f9-4a35-96ca-151084638969', 'demo', 'demo', 'mysql', 'ROM9ccqPioJ1SCj70u/B+KCVPfwPyNbqgIgkguMQEbjrQLbGyQLfqnQdH64Nyb+LyW+vDZzSK0SJFxUGAwGxvUtKnmpwinKRZ9OcFiQB10Nq5r/DH4+2F9/dKBs2lQgrwNj5w6MyhRswSKzkfCw5fNndcN2ad990JjOQLYz2Y5M=', '1624247414781', '1624247414781', 'admin')
+sgcc                 |
+sgcc                 | 2022-01-21 15:20:55,040  INFO duling.concurrent.ThreadPoolTaskExecutor: 218 - Shutting down ExecutorService 'taskExecutor'
+sgcc                 | 2022-01-21 15:20:55,082  INFO k.scheduling.quartz.SchedulerFactoryBean: 845 - Shutting down Quartz Scheduler
+sgcc                 | 2022-01-21 15:20:55,082  INFO          org.quartz.core.QuartzScheduler: 666 - Scheduler clusterScheduler_$_b85d6849db431642749642407 shutting down.
+sgcc                 | 2022-01-21 15:20:55,083  INFO          org.quartz.core.QuartzScheduler: 585 - Scheduler clusterScheduler_$_b85d6849db431642749642407 paused.
+sgcc                 | 2022-01-21 15:20:55,084  INFO          org.quartz.core.QuartzScheduler: 740 - Scheduler clusterScheduler_$_b85d6849db431642749642407 shutdown complete.
+sgcc                 | 2022-01-21 15:20:55,087  INFO       com.zaxxer.hikari.HikariDataSource: 350 - DatebookHikariCP - Shutdown initiated...
+sgcc                 | 2022-01-21 15:20:55,104  INFO       com.zaxxer.hikari.HikariDataSource: 352 - DatebookHikariCP - Shutdown completed.
+sgcc                 | 2022-01-21 15:20:55,114  INFO         org.eclipse.jetty.server.session: 149 - node0 Stopped scavenging
+sgcc                 | 2022-01-21 15:20:55,117  INFO ipse.jetty.server.handler.ContextHandler:1154 - Stopped o.s.b.w.e.j.JettyEmbeddedWebAppContext@379ab47b{application,/,[file:///tmp/jetty-docbase.8081.6220534423842544531/, jar:file:/opt/apps/backend-1.6.0.jar!/BOOT-INF/lib/knife4j-spring-ui-3.0.3.jar!/META-INF/resources],STOPPED}
+sgcc                 | 2022-01-21 15:20:55,140  INFO ConditionEvaluationReportLoggingListener: 136 -
+sgcc                 |
+sgcc                 | Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+sgcc                 | 2022-01-21 15:20:55,183 ERROR g.springframework.boot.SpringApplication: 856 - Application run failed
+sgcc                 | org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is
+org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException:
+sgcc                 | Migration V8__demo.sql failed
+sgcc                 | -----------------------------
+sgcc                 | SQL State  : HY000
+sgcc                 | Error Code : 1267
+sgcc                 | Message    : Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+sgcc                 | Location   : db/migration/V8__demo.sql (/deployments/file:/opt/apps/backend-1.6.0.jar!/BOOT-INF/classes!/db/migration/V8__demo.sql)
+sgcc                 | Line       : 41
+sgcc                 | Statement  : INSERT INTO  `datasource` (`id`, `name`, `desc`, `type`, `configuration`, `create_time`, `update_time`, `create_by`) VALUES ('76026997-94f9-4a35-96ca-151084638969', 'demo', 'demo', 'mysql', 'ROM9ccqPioJ1SCj70u/B+KCVPfwPyNbqgIgkguMQEbjrQLbGyQLfqnQdH64Nyb+LyW+vDZzSK0SJFxUGAwGxvUtKnmpwinKRZ9OcFiQB10Nq5r/DH4+2F9/dKBs2lQgrwNj5w6MyhRswSKzkfCw5fNndcN2ad990JjOQLYz2Y5M=', '1624247414781', '1624247414781', 'admin')
+sgcc                 |
+sgcc                 |  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+sgcc                 |  at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+sgcc                 |  at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:582)
+sgcc                 |  at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+sgcc                 |  at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+sgcc                 |  at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+sgcc                 |  at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+sgcc                 |  at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+sgcc                 |  at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+sgcc                 |  at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+sgcc                 |  at io.dataease.Application.main(Application.java:22)
+sgcc                 |  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sgcc                 |  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sgcc                 |  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+sgcc                 |  at java.lang.reflect.Method.invoke(Method.java:498)
+sgcc                 |  at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+sgcc                 |  at org.springframework.boot.loader.Launcher.launch(Launcher.java:107)
+sgcc                 |  at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+sgcc                 |  at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:88)
+sgcc                 | Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException:
+sgcc                 | Migration V8__demo.sql failed
+sgcc                 | -----------------------------
+sgcc                 | SQL State  : HY000
+sgcc                 | Error Code : 1267
+sgcc                 | Message    : Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+sgcc                 | Location   : db/migration/V8__demo.sql (/deployments/file:/opt/apps/backend-1.6.0.jar!/BOOT-INF/classes!/db/migration/V8__demo.sql)
+sgcc                 | Line       : 41
+sgcc                 | Statement  : INSERT INTO  `datasource` (`id`, `name`, `desc`, `type`, `configuration`, `create_time`, `update_time`, `create_by`) VALUES ('76026997-94f9-4a35-96ca-151084638969', 'demo', 'demo', 'mysql', 'ROM9ccqPioJ1SCj70u/B+KCVPfwPyNbqgIgkguMQEbjrQLbGyQLfqnQdH64Nyb+LyW+vDZzSK0SJFxUGAwGxvUtKnmpwinKRZ9OcFiQB10Nq5r/DH4+2F9/dKBs2lQgrwNj5w6MyhRswSKzkfCw5fNndcN2ad990JjOQLYz2Y5M=', '1624247414781', '1624247414781', 'admin')
+sgcc                 |
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:438)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:56)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:341)
+sgcc                 |  at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:66)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:338)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:303)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:56)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:207)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:204)
+sgcc                 |  at org.flywaydb.core.internal.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:60)
+sgcc                 |  at org.flywaydb.core.internal.database.mysql.MySQLConnection.lock(MySQLConnection.java:161)
+sgcc                 |  at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:139)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:204)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:165)
+sgcc                 |  at org.flywaydb.core.Flyway$1.execute(Flyway.java:215)
+sgcc                 |  at org.flywaydb.core.Flyway$1.execute(Flyway.java:164)
+sgcc                 |  at org.flywaydb.core.Flyway.execute(Flyway.java:538)
+sgcc                 |  at org.flywaydb.core.Flyway.migrate(Flyway.java:164)
+sgcc                 |  at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845)
+sgcc                 |  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+sgcc                 |  ... 27 common frames omitted
+sgcc                 | Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException:
+sgcc                 | Migration V8__demo.sql failed
+sgcc                 | -----------------------------
+sgcc                 | SQL State  : HY000
+sgcc                 | Error Code : 1267
+sgcc                 | Message    : Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+sgcc                 | Location   : db/migration/V8__demo.sql (/deployments/file:/opt/apps/backend-1.6.0.jar!/BOOT-INF/classes!/db/migration/V8__demo.sql)
+sgcc                 | Line       : 41
+sgcc                 | Statement  : INSERT INTO  `datasource` (`id`, `name`, `desc`, `type`, `configuration`, `create_time`, `update_time`, `create_by`) VALUES ('76026997-94f9-4a35-96ca-151084638969', 'demo', 'demo', 'mysql', 'ROM9ccqPioJ1SCj70u/B+KCVPfwPyNbqgIgkguMQEbjrQLbGyQLfqnQdH64Nyb+LyW+vDZzSK0SJFxUGAwGxvUtKnmpwinKRZ9OcFiQB10Nq5r/DH4+2F9/dKBs2lQgrwNj5w6MyhRswSKzkfCw5fNndcN2ad990JjOQLYz2Y5M=', '1624247414781', '1624247414781', 'admin')
+sgcc                 |
+sgcc                 |  at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:273)
+sgcc                 |  at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:218)
+sgcc                 |  at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:126)
+sgcc                 |  at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:82)
+sgcc                 |  at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.access$000(SqlMigrationExecutor.java:32)
+sgcc                 |  at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor$1.call(SqlMigrationExecutor.java:70)
+sgcc                 |  at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor$1.call(SqlMigrationExecutor.java:67)
+sgcc                 |  at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:28)
+sgcc                 |  at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:67)
+sgcc                 |  at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:434)
+sgcc                 |  ... 47 common frames omitted
+sgcc                 | Caused by: java.sql.SQLException: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+sgcc                 |  at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+sgcc                 |  at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+sgcc                 |  at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:762)
+sgcc                 |  at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:646)
+sgcc                 |  at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+sgcc                 |  at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+sgcc                 |  at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:241)
+sgcc                 |  at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:111)
+sgcc                 |  at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+sgcc                 |  ... 55 common frames omitted
+sgcc exited with code 1
+
+Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+
+INSERT INTO  `datasource` (`id`, `name`, `desc`, `type`, `configuration`, `create_time`, `update_time`, `create_by`) VALUES ('76026997-94f9-4a35-96ca-151084638969', 'demo', 'demo', 'mysql', 'ROM9ccqPioJ1SCj70u/B+KCVPfwPyNbqgIgkguMQEbjrQLbGyQLfqnQdH64Nyb+LyW+vDZzSK0SJFxUGAwGxvUtKnmpwinKRZ9OcFiQB10Nq5r/DH4+2F9/dKBs2lQgrwNj5w6MyhRswSKzkfCw5fNndcN2ad990JjOQLYz2Y5M=', '1624247414781', '1624247414781', 'admin');
+INSERT INTO  `datasource` (`id`, `name`, `desc`, `type`, `configuration`, `create_time`, `update_time`, `create_by`) VALUES ('76026997-94f9-4a35-96ca-151084638969', 'demo', 'demo', 'mysql', '', '1624247414781', '1624247414781', 'admin');
+
+sgcc                 | org.quartz.JobPersistenceException: Couldn't obtain job groups: Table 'sgcc.QRTZ_JOB_DETAILS' doesn't exist [See nested exception: java.sql.SQLSyntaxErrorException: Table 'sgcc.QRTZ_JOB_DETAILS' doesn't exist]
+sgcc                 |  at org.quartz.impl.jdbcjobstore.JobStoreSupport.getJobGroupNames(JobStoreSupport.java:2087)
+sgcc                 |  at org.quartz.impl.jdbcjobstore.JobStoreSupport$26.execute(JobStoreSupport.java:2074)
+sgcc                 |  at org.quartz.impl.jdbcjobstore.JobStoreCMT.executeInLock(JobStoreCMT.java:245)
+sgcc                 |  at org.quartz.impl.jdbcjobstore.JobStoreSupport.executeWithoutLock(JobStoreSupport.java:3800)
+sgcc                 |  at org.quartz.impl.jdbcjobstore.JobStoreSupport.getJobGroupNames(JobStoreSupport.java:2071)
+sgcc                 |  at org.quartz.core.QuartzScheduler.getJobGroupNames(QuartzScheduler.java:1422)
+sgcc                 |  at org.quartz.impl.StdScheduler.getJobGroupNames(StdScheduler.java:451)
+sgcc                 |  at com.fit2cloud.quartz.SchedulerStarter.getJobKeys(SchedulerStarter.java:148)
+sgcc                 |  at com.fit2cloud.quartz.SchedulerStarter.startScheduler(SchedulerStarter.java:125)
+sgcc                 |  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sgcc                 |  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sgcc                 |  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+sgcc                 |  at java.lang.reflect.Method.invoke(Method.java:498)
+sgcc                 |  at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:312)
+sgcc                 |  at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:197)
+sgcc                 |  at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:160)
+sgcc                 |  at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+sgcc                 |  at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+sgcc                 |  at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:420)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:426)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:377)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:937)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:585)
+sgcc                 |  at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+sgcc                 |  at org.springframework.boot.actuate.autoconfigure.web.server.ManagementContextAutoConfiguration$DifferentManagementContextConfiguration.onApplicationEvent(ManagementContextAutoConfiguration.java:149)
+sgcc                 |  at org.springframework.boot.actuate.autoconfigure.web.server.ManagementContextAutoConfiguration$DifferentManagementContextConfiguration.onApplicationEvent(ManagementContextAutoConfiguration.java:121)
+sgcc                 |  at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+sgcc                 |  at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+sgcc                 |  at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:420)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:377)
+sgcc                 |  at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:46)
+sgcc                 |  at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178)
+sgcc                 |  at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54)
+sgcc                 |  at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356)
+sgcc                 |  at java.lang.Iterable.forEach(Iterable.java:75)
+sgcc                 |  at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155)
+sgcc                 |  at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:934)
+sgcc                 |  at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:585)
+sgcc                 |  at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
+sgcc                 |  at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767)
+sgcc                 |  at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+sgcc                 |  at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
+sgcc                 |  at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
+sgcc                 |  at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311)
+sgcc                 |  at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+sgcc                 |  at io.dataease.Application.main(Application.java:22)
+sgcc                 |  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sgcc                 |  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sgcc                 |  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+sgcc                 |  at java.lang.reflect.Method.invoke(Method.java:498)
+sgcc                 |  at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+sgcc                 |  at org.springframework.boot.loader.Launcher.launch(Launcher.java:107)
+sgcc                 |  at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+sgcc                 |  at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:88)
+sgcc                 | Caused by: java.sql.SQLSyntaxErrorException: Table 'sgcc.QRTZ_JOB_DETAILS' doesn't exist
+sgcc                 |  at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+sgcc                 |  at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+sgcc                 |  at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+sgcc                 |  at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+sgcc                 |  at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+sgcc                 |  at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+sgcc                 |  at org.quartz.impl.jdbcjobstore.StdJDBCDelegate.selectJobGroups(StdJDBCDelegate.java:941)
+sgcc                 |  at org.quartz.impl.jdbcjobstore.JobStoreSupport.getJobGroupNames(JobStoreSupport.java:2085)
+sgcc                 |  ... 56 more
+
+sgcc                 | com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+sgcc                 |
+sgcc                 | The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+sgcc                 |  at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sgcc                 |  at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sgcc                 |  at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+sgcc                 |  at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+sgcc                 |  at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+sgcc                 |  at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+sgcc                 |  at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342)
+sgcc                 |  at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+sgcc                 |  at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2221)
+sgcc                 |  at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2016)
+sgcc                 |  at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+sgcc                 |  at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+sgcc                 |  at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sgcc                 |  at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sgcc                 |  at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+sgcc                 |  at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+sgcc                 |  at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+sgcc                 |  at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+sgcc                 |  at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+sgcc                 |  at io.dataease.provider.datasource.JdbcProvider.getConnection(JdbcProvider.java:478)
+sgcc                 |  at io.dataease.provider.datasource.JdbcProvider.checkStatus(JdbcProvider.java:342)
+sgcc                 |  at io.dataease.provider.datasource.JdbcProvider.handleDatasource(JdbcProvider.java:355)
+sgcc                 |  at io.dataease.service.datasource.DatasourceService.lambda$handleConnectionPool$0(DatasourceService.java:73)
+sgcc                 |  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+sgcc                 |  at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+sgcc                 |  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+sgcc                 |  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+sgcc                 |  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+sgcc                 |  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+sgcc                 |  at java.lang.Thread.run(Thread.java:748)
+sgcc                 | Caused by: java.net.UnknownHostException: mysql: Try again
+sgcc                 |  at java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method)
+sgcc                 |  at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:930)
+sgcc                 |  at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1325)
+sgcc                 |  at java.net.InetAddress.getAllByName0(InetAddress.java:1278)
+sgcc                 |  at java.net.InetAddress.getAllByName(InetAddress.java:1194)
+sgcc                 |  at java.net.InetAddress.getAllByName(InetAddress.java:1128)
+sgcc                 |  at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:188)
+sgcc                 |  at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301)
+sgcc                 |  ... 23 more
+

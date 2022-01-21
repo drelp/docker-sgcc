@@ -74,10 +74,18 @@ update datasource set configuration='FGdni+RMR0cExlN1RYXIvy2vSKiJEFy23jOVIhIZOZt
 
 sudo docker-compose up sgcc
 sudo docker-compose up -d sgcc
+sudo docker-compose stop sgcc
 
 http://10.50.10.27:8061/
 demo
 dataease
 
 https://sgcc-bj.7otech.com
+
+10.50.10.27
+9030
+
+蠃鱼数据中台
+
+https://cdkm.com/cn/png-to-svg
 ```
