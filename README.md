@@ -23,4 +23,6 @@ http://10.50.10.27:8030/login
 root
 sgcc
 
+sudo docker-compose up -d prometheus
+
 ```
