@@ -51,6 +51,16 @@ sudo docker-compose up -d kettle
 sudo docker-compose stop kettle
 sudo docker-compose rm kettle
 
+sudo docker-compose up sgcc-mysql
+sudo docker-compose up -d sgcc-mysql
+sudo docker-compose stop sgcc-mysql
+sudo docker-compose rm sgcc-mysql
+
+sudo docker-compose up sgcc
+sudo docker-compose up -d sgcc
+sudo docker-compose stop sgcc
+sudo docker-compose rm sgcc
+
 tail -f data/fe/log/fe.*
 tail -f data/be/log/be.*
 
