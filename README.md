@@ -67,8 +67,8 @@ sudo docker-compose up -d sgcc-mysql
 mysql -h127.0.0.1 -uroot -p -P3316
 root
 
-create database sgcc default character set utf8mb4 collate utf8mb4_unicode_ci;
-create database dataease default character set utf8mb4 collate utf8mb4_unicode_ci;
+create database sgcc default character set utf8mb4 collate utf8mb4_general_ci;
+create database dataease default character set utf8mb4 collate utf8mb4_general_ci;
 
 sudo docker-compose up sgcc
 sudo docker-compose up -d sgcc
