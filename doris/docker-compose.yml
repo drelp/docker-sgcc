@@ -122,10 +122,44 @@ services:
     container_name: kettle
     volumes:
       - ./kettle/conf/:/opt/dataease/conf
-      - ./kettle-data:/opt/dataease/data/kettle
+      - ./sgcc/kettle-data:/opt/dataease/data/kettle
     networks:
       - sgcc-network
     restart: always
+
+  sgcc-mysql:
+    image: registry.cn-qingdao.aliyuncs.com/dataease/mysql:5.7.25
+    container_name: sgcc-mysql
+    ports:
+      - 3316:3306
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/data:/var/lib/mysql
+      - ./db/init-sql:/docker-entrypoint-initdb.d
+    networks:
+      - sgcc-network
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+
+  sgcc:
+    image: yiluxiangbei/sgcc-bj:v1.0
+    container_name: sgcc
+    ports:
+      - 8061:8081
+    volumes:
+      - ./sgcc/conf:/opt/dataease/conf
+      - ./sgcc/logs:/opt/dataease/logs
+      - ./sgcc/plugins:/opt/dataease/plugins/thirdpart
+      - ./sgcc/kettle-data:/opt/dataease/data/kettle
+    depends_on:
+      - sgcc-mysql
+    networks:
+      - sgcc-network
 
 networks:
   sgcc-network:
