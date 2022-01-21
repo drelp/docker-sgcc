@@ -22,9 +22,9 @@ services:
     container_name: doris-fe-follower
     environment:
       - DORIS_ROLE=fe-follower
-      - DORIS_LEADER=192.168.0.186:9010
+      - DORIS_LEADER=10.50.10.27:9010
       - FE_ROLE=fe-follower
-      - FE_LEADER=192.168.0.186:9010
+      - FE_LEADER=10.50.10.27:9010
     volumes:
       - "./data/fe/log:/home/doris/fe/log"
       - "./data/fe/doris-meta:/home/doris/fe/doris-meta"
@@ -129,9 +129,9 @@ services:
       --collation-server=utf8mb4_general_ci
       --default-authentication-plugin=mysql_native_password
     volumes:
-      - ./db/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./db/data:/var/lib/mysql
-      - ./db/init-sql:/docker-entrypoint-initdb.d
+      - ./sgcc-db/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./sgcc-db/data:/var/lib/mysql
+      - ./sgcc-db/init-sql:/docker-entrypoint-initdb.d
     networks:
       - sgcc-network
     environment:

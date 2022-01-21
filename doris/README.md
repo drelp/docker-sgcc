@@ -51,29 +51,25 @@ tail -f data/be/log/be.*
 
 docker exec -it 1055d4412078 bash
 mysql -h127.0.0.1 -uroot -p
-mysql -h192.168.0.186 -ugrafana -p
-mysql -h192.168.0.174 -ugrafana -p
+mysql -h10.50.10.27 -ugrafana -p
 
 mysql -h127.0.0.1 -uroot -p -P9030
-mysql -h192.168.0.186 -uroot -p -P9030
+mysql -h10.50.10.27 -uroot -p -P9030
 sgcc
-ALTER SYSTEM ADD BACKEND "192.168.0.152:9050";
-ALTER SYSTEM ADD BACKEND "192.168.0.196:9050";
-ALTER SYSTEM ADD BACKEND "192.168.0.198:9050";
-ALTER SYSTEM ADD BACKEND "192.168.0.185:9050";
+ALTER SYSTEM ADD BACKEND "10.50.10.27:9050";
 
-ALTER SYSTEM DROPP BACKEND "192.168.0.198:9050";
+ALTER SYSTEM DROPP BACKEND "10.50.10.27:9050";
 ERROR 1064 (HY000): errCode = 2, detailMessage = It is highly NOT RECOMMENDED to use DROP BACKEND stmt.It is not safe to directly drop a backend. All data
 on this backend will be discarded permanently. If you insist, use DROPP BACKEND stmt (double P).
 
-ALTER SYSTEM ADD BACKEND "192.168.0.97:9050";
+ALTER SYSTEM ADD BACKEND "10.50.10.27:9050";
 
-ALTER SYSTEM ADD BROKER hdfs_broker "192.168.0.196:8000";
+ALTER SYSTEM ADD BROKER hdfs_broker "10.50.10.27:8000";
 SHOW PROC '/brokers';
 
 SHOW PROC '/backends';
 SHOW PROC '/backends'\G
-ALTER SYSTEM ADD OBSERVER "192.168.0.174:9010";
+ALTER SYSTEM ADD OBSERVER "10.50.10.27:9010";
 SHOW PROC '/frontends';
 SHOW PROC '/frontends'\G
 SET PASSWORD FOR 'root' = PASSWORD('sgcc');
