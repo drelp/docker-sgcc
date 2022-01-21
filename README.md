@@ -24,5 +24,26 @@ root
 sgcc
 
 sudo docker-compose up -d prometheus
+http://10.50.10.27:9090
+
+sudo docker-compose up -d grafana-mysql80
+mysql -h127.0.0.1 -uroot -p
+root
+
+create database grafana DEFAULT CHARACTER SET utf8mb4;
+create user 'grafana'@'127.0.0.1' identified by 'grafana';
+grant all privileges on grafana.* to 'grafana'@'127.0.0.1';
+create user 'grafana'@'%' identified by 'grafana';
+grant all privileges on grafana.* to 'grafana'@'%';
+flush privileges;
+
+use grafana
+
+CREATE TABLE `session` (
+    `key`       CHAR(16) NOT NULL,
+    `data`      BLOB,
+    `expiry`    INT(11) UNSIGNED NOT NULL,
+    PRIMARY KEY (`key`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 ```

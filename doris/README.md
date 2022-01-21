@@ -114,6 +114,8 @@ create user 'grafana'@'%' identified by 'grafana';
 grant all privileges on grafana.* to 'grafana'@'%';
 flush privileges;
 
+use grafana
+
 CREATE TABLE `session` (
     `key`       CHAR(16) NOT NULL,
     `data`      BLOB,
