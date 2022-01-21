@@ -46,6 +46,11 @@ sudo docker-compose rm grafana
 
 sudo docker-compose logs -f grafana
 
+sudo docker-compose up kettle
+sudo docker-compose up -d kettle
+sudo docker-compose stop kettle
+sudo docker-compose rm kettle
+
 tail -f data/fe/log/fe.*
 tail -f data/be/log/be.*
 

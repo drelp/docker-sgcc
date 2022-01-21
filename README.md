@@ -56,4 +56,8 @@ sgcc2022
 
 add datasource
 import json file
+
+sudo docker-compose up -d kettle
+
+docker-compose logs -f
 ```
