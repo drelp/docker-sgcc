@@ -78,4 +78,6 @@ sudo docker-compose up -d sgcc
 http://10.50.10.27:8061/
 demo
 dataease
+
+https://sgcc-bj.7otech.com
 ```
