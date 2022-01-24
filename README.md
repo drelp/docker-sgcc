@@ -105,4 +105,8 @@ Sgcc2022
 蠃鱼数据中台
 
 https://cdkm.com/cn/png-to-svg
+
+mongodb://[username:password@]host1[:port1][,...hostN[:portN]]][/[database][?options]]
+mongodb://root:123456@sgcc-mongodb:27017
+mongodb://root:123456@10.50.10.27:27017
 ```
