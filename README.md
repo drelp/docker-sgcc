@@ -80,6 +80,11 @@ http://10.50.10.27:8061/
 demo
 dataease
 
+sudo docker-compose up -d sgcc-mongodb
+sudo docker-compose up -d sgcc-mongo-express
+
+http://10.50.10.27:8081/
+
 https://sgcc-bj.7otech.com
 demo
 Sgcc2022
