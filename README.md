@@ -71,6 +71,12 @@ root
 create database sgcc default character set utf8mb4 collate utf8mb4_general_ci;
 create database dataease default character set utf8mb4 collate utf8mb4_general_ci;
 
+create user 'sgcc'@'127.0.0.1' identified by 'sgcc';
+grant all privileges on sgcc.* to 'sgcc'@'127.0.0.1';
+create user 'sgcc'@'%' identified by 'sgcc';
+grant all privileges on sgcc.* to 'sgcc'@'%';
+flush privileges;
+
 update datasource set configuration='FGdni+RMR0cExlN1RYXIvy2vSKiJEFy23jOVIhIZOZte8V7lXdroyPseLVepG4N5uOfohY4OCuTOi0qVuWOFDrnFOePJePzLQPyqAtwP9miq4gFbD4ecWbGg3oQ/2bld7s7NxgNShDMFQlMM9qTG2FL12TNLPVsVD2Xa4Pbf0NMXU+TDUoZ8DETgKl1JCopmtc1UW+Y3DS0u2ABIS6ffA+mnRSykZp68nQIeOufWpk4IyJ5rutcO5hhKnmpmXjFyNKqv7o/q+YGjjxekRjLH4xjai2oWBpYqbWx7Isf9zpUptocJkpbEEf7AV+nu6nGFA5rYkodxAI2QOUbM5UbQN8q8KE6KiDZeH1yqSceN4SOnppqPyTZbUbdLAhR+nAfy1td+0NzH6iWH9UckaJSNUogeUw6BiY+VETgY6bZq2/UTGS45oD8Ug3Vb5D5avbzOSrEaq9WG+SQ6GIE9dS71YdtdkGVgSDdTLtnYZYj5xZE=' where name='demo';
 
 sudo docker-compose up sgcc
