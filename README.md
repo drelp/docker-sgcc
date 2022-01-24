@@ -107,6 +107,8 @@ Sgcc2022
 
 https://cdkm.com/cn/png-to-svg
 
+jdbc:mysql://datax-web-mysql:3306/dataxweb
+
 mongodb://[username:password@]host1[:port1][,...hostN[:portN]]][/[database][?options]]
 mongodb://root:123456@sgcc-mongodb:27017
 mongodb://root:123456@10.50.10.27:27017
