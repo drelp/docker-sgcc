@@ -119,6 +119,36 @@ services:
       - sgcc-network
     restart: always
 
+  sgcc-mongodb:
+    image: mongo
+    container_name: sgcc-mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - "./mongodb/configdb:/data/configdb"
+      - "./mongodb/db:/data/db"
+      - /etc/localtime:/etc/localtime
+    networks:
+      - sgcc-network
+    # command: mongod --auth
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root       #初始化管理员用户名和密码
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - TZ="Asia/Shanghai"
+    tty: true
+
+  sgcc-mongo-express:
+    image: mongo-express
+    container_name: sgcc-mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    networks:
+      - sgcc-network
+    environment:
+      ME_CONFIG_MONGODB_URL: "mongodb://root:123456@sgcc-mongodb:27017"
+
   sgcc-mysql:
     image: yiluxiangbei/mysql:5.7.25
     container_name: sgcc-mysql
