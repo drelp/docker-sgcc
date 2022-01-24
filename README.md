@@ -81,6 +81,11 @@ demo
 dataease
 
 https://sgcc-bj.7otech.com
+demo
+Sgcc2022
+
+admin
+Sgcc2022
 
 10.50.10.27
 9030
