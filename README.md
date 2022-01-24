@@ -65,8 +65,9 @@ docker-compose logs -f
 
 sudo docker-compose up -d sgcc-mysql
 mysql -h127.0.0.1 -uroot -p -P3316
-mysql -h10.50.10.27 -uroot -p -P3316
 root
+mysql -h10.50.10.27 -usgcc -p -P3316
+sgcc
 
 create database sgcc default character set utf8mb4 collate utf8mb4_general_ci;
 create database dataease default character set utf8mb4 collate utf8mb4_general_ci;
@@ -109,4 +110,6 @@ https://cdkm.com/cn/png-to-svg
 mongodb://[username:password@]host1[:port1][,...hostN[:portN]]][/[database][?options]]
 mongodb://root:123456@sgcc-mongodb:27017
 mongodb://root:123456@10.50.10.27:27017
+
+mongodb://root:123456@127.0.0.1:27017/test?authSource=${auth_db:admin}
 ```
