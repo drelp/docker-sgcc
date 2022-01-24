@@ -51,10 +51,10 @@ sudo docker-compose up -d kettle
 sudo docker-compose stop kettle
 sudo docker-compose rm kettle
 
-sudo docker-compose up sgcc-mongo
-sudo docker-compose up -d sgcc-mongo
-sudo docker-compose stop sgcc-mongo
-sudo docker-compose rm sgcc-mongo
+sudo docker-compose up sgcc-mongodb
+sudo docker-compose up -d sgcc-mongodb
+sudo docker-compose stop sgcc-mongodb
+sudo docker-compose rm sgcc-mongodb
 
 sudo docker-compose up sgcc-mongo-express
 sudo docker-compose up -d sgcc-mongo-express
