@@ -152,6 +152,8 @@ services:
       - sgcc-mysql
     links:
       - doris-fe:doris-fe
+    #external_links:
+    #  - doris-fe
     networks:
       - sgcc-network
 
