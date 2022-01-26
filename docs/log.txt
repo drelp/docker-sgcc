@@ -278,3 +278,95 @@ Access DolphinScheduler UI URL by:
   kubectl port-forward -n test svc/dolphinscheduler-api 12345:12345
 
   DolphinScheduler UI URL: http://127.0.0.1:12345/dolphinscheduler
+
+helm install dolphinscheduler . -n test
+NAME: dolphinscheduler
+LAST DEPLOYED: Wed Jan 26 14:34:30 2022
+NAMESPACE: test
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+#
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+** Please be patient while the chart DolphinScheduler 2.0.2 is being deployed **
+
+Access DolphinScheduler UI URL by:
+
+  kubectl port-forward -n test svc/dolphinscheduler-api 12345:12345
+
+  DolphinScheduler UI URL: http://127.0.0.1:12345/dolphinscheduler
+
+\l
+                                     List of databases
+       Name       |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
+------------------+----------+----------+-------------+-------------+-----------------------
+ dolphinscheduler | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/postgres         +
+                  |          |          |             |             | postgres=CTc/postgres+
+                  |          |          |             |             | root=CTc/postgres
+ postgres         | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0        | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                  |          |          |             |             | postgres=CTc/postgres
+ template1        | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                  |          |          |             |             | postgres=CTc/postgres
+(4 rows)
+
+\d t_ds_resources
+                                            Table "public.t_ds_resources"
+    Column    |            Type             | Collation | Nullable |                     Default
+--------------+-----------------------------+-----------+----------+-------------------------------------------------
+ id           | integer                     |           | not null | nextval('t_ds_resources_id_sequence'::regclass)
+ alias        | character varying(64)       |           |          | NULL::character varying
+ file_name    | character varying(64)       |           |          | NULL::character varying
+ description  | character varying(255)      |           |          | NULL::character varying
+ user_id      | integer                     |           |          |
+ type         | integer                     |           |          |
+ size         | bigint                      |           |          |
+ create_time  | timestamp without time zone |           |          |
+ update_time  | timestamp without time zone |           |          |
+ pid          | integer                     |           |          |
+ full_name    | character varying(64)       |           |          |
+ is_directory | integer                     |           |          |
+Indexes:
+    "t_ds_resources_pkey" PRIMARY KEY, btree (id)
+    "t_ds_resources_un" UNIQUE CONSTRAINT, btree (full_name, type)
+
+ALTER TABLE t_ds_resources ALTER COLUMN is_directory type boolean;
+ERROR:  column "is_directory" cannot be cast automatically to type boolean
+HINT:  You might need to specify "USING is_directory::boolean".
+
+\d t_ds_resources
+                                            Table "public.t_ds_resources"
+    Column    |            Type             | Collation | Nullable |                     Default
+--------------+-----------------------------+-----------+----------+-------------------------------------------------
+ id           | integer                     |           | not null | nextval('t_ds_resources_id_sequence'::regclass)
+ alias        | character varying(64)       |           |          | NULL::character varying
+ file_name    | character varying(64)       |           |          | NULL::character varying
+ description  | character varying(255)      |           |          | NULL::character varying
+ user_id      | integer                     |           |          |
+ type         | integer                     |           |          |
+ size         | bigint                      |           |          |
+ create_time  | timestamp without time zone |           |          |
+ update_time  | timestamp without time zone |           |          |
+ pid          | integer                     |           |          |
+ full_name    | character varying(64)       |           |          |
+ is_directory | boolean                     |           |          |
+Indexes:
+    "t_ds_resources_pkey" PRIMARY KEY, btree (id)
+    "t_ds_resources_un" UNIQUE CONSTRAINT, btree (full_name, type)
+    

@@ -121,6 +121,29 @@ mongodb://root:123456@127.0.0.1:27017/test?authSource=${auth_db:admin}
 ```
 
 ```
+2.0.2
+
+cd apache-dolphinscheduler-2.0.2-src
+helm install dolphinscheduler . -n test
+
+kubectl port-forward --address 0.0.0.0 -n test svc/dolphinscheduler-api 12345:12345
+
+https://dolphin.7otech.com/dolphinscheduler
+
+kubectl logs -f dolphinscheduler-master-0 -n test
+
+psql -U root -d dolphinscheduler
+root
+
+postgresql
+
+\l
+select tablename from pg_tables where schemaname='public';
+\d t_ds_resources
+
+postgresql 更改字段类型
+ALTER TABLE t_ds_resources ALTER COLUMN is_directory type boolean USING is_directory::BOOLEAN;
+
 wget --no-check-certificate https://dlcdn.apache.org/dolphinscheduler/2.0.3/apache-dolphinscheduler-2.0.3-src.tar.gz
 
 tar -zxvf apache-dolphinscheduler-2.0.3-src.tar.gz
@@ -132,8 +155,24 @@ helm install dolphinscheduler .
 helm install dolphinscheduler . -n test
 
 helm uninstall dolphinscheduler -n test
+kubectl delete pvc -l app.kubernetes.io/instance=dolphinscheduler
 
 kubectl port-forward --address 0.0.0.0 -n test svc/dolphinscheduler-api 12345:12345
 
 docker pull apache/dolphinscheduler:2.0.3
+```
+
+```
+kubectl get pod -n test
+NAME                                      READY   STATUS    RESTARTS   AGE
+dolphinscheduler-alert-5dbbf7c55b-7b7f8   1/1     Running   0          7m13s
+dolphinscheduler-api-65b7b948bb-thlxg     1/1     Running   0          7m13s
+dolphinscheduler-master-0                 1/1     Running   0          7m13s
+dolphinscheduler-master-1                 1/1     Running   0          7m13s
+dolphinscheduler-master-2                 1/1     Running   0          7m13s
+dolphinscheduler-postgresql-0             1/1     Running   0          7m13s
+dolphinscheduler-worker-0                 1/1     Running   0          7m13s
+dolphinscheduler-worker-1                 1/1     Running   0          7m13s
+dolphinscheduler-worker-2                 1/1     Running   0          7m13s
+dolphinscheduler-zookeeper-0              1/1     Running   0          7m13s
 ```
