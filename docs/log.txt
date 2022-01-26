@@ -246,3 +246,35 @@ sgcc                 |  at com.mysql.jdbc.StandardSocketFactory.connect(Standard
 sgcc                 |  at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301)
 sgcc                 |  ... 23 more
 
+helm install dolphinscheduler . -n test
+NAME: dolphinscheduler
+LAST DEPLOYED: Wed Jan 26 13:57:04 2022
+NAMESPACE: test
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+#
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+** Please be patient while the chart DolphinScheduler 2.0.3 is being deployed **
+
+Access DolphinScheduler UI URL by:
+
+  kubectl port-forward -n test svc/dolphinscheduler-api 12345:12345
+
+  DolphinScheduler UI URL: http://127.0.0.1:12345/dolphinscheduler
