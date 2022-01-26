@@ -116,8 +116,15 @@ jdbc:mysql://10.50.10.27:3316/sgcc?useSSL=false
 mongodb://[username:password@]host1[:port1][,...hostN[:portN]]][/[database][?options]]
 mongodb://root:123456@sgcc-mongodb:27017
 mongodb://root:123456@10.50.10.27:27017
+yRjwDFuoPKlqya9h9H2Amg==
+XCYVpFosvZBBWobFzmLWvA==
 
 mongodb://root:123456@127.0.0.1:27017/test?authSource=${auth_db:admin}
+
+mongo -u root -p
+root
+
+show dbs
 ```
 
 ```

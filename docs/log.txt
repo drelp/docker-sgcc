@@ -398,3 +398,15 @@ dolphinscheduler-master       3/3     44m
 dolphinscheduler-postgresql   1/1     44m
 dolphinscheduler-worker       3/3     44m
 dolphinscheduler-zookeeper    1/1     44m
+
+mongo --host 10.50.10.27 -u root -p
+MongoDB shell version v5.0.5
+Enter password:
+connecting to: mongodb://10.50.10.27:27017/?compressors=disabled&gssapiServiceName=mongodb
+Error: Authentication failed. :
+connect@src/mongo/shell/mongo.js:372:17
+@(connect):2:6
+exception: connect failed
+exiting with code 1
+
+mongo --host 127.0.0.1 -u root -p
