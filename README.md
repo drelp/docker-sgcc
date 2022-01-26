@@ -92,6 +92,7 @@ sudo docker-compose up -d sgcc-mongodb
 sudo docker-compose up -d sgcc-mongo-express
 
 http://10.50.10.27:8081/
+https://sgcc-m.7otech.com/
 
 https://sgcc-bj.7otech.com
 demo
