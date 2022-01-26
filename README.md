@@ -122,4 +122,12 @@ mongodb://root:123456@127.0.0.1:27017/test?authSource=${auth_db:admin}
 
 ```
 wget --no-check-certificate https://dlcdn.apache.org/dolphinscheduler/2.0.3/apache-dolphinscheduler-2.0.3-src.tar.gz
+
+tar -zxvf apache-dolphinscheduler-2.0.3-src.tar.gz
+cd apache-dolphinscheduler-2.0.3-src/docker/kubernetes/dolphinscheduler
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm dependency update .
+helm install dolphinscheduler .
+
+helm install dolphinscheduler . -n test
 ```
