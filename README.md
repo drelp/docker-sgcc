@@ -119,3 +119,7 @@ mongodb://root:123456@10.50.10.27:27017
 
 mongodb://root:123456@127.0.0.1:27017/test?authSource=${auth_db:admin}
 ```
+
+```
+wget --no-check-certificate https://dlcdn.apache.org/dolphinscheduler/2.0.3/apache-dolphinscheduler-2.0.3-src.tar.gz
+```
