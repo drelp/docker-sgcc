@@ -369,4 +369,32 @@ HINT:  You might need to specify "USING is_directory::boolean".
 Indexes:
     "t_ds_resources_pkey" PRIMARY KEY, btree (id)
     "t_ds_resources_un" UNIQUE CONSTRAINT, btree (full_name, type)
-    
+
+
+kubectl get po -n test
+NAME                                      READY   STATUS    RESTARTS   AGE
+dolphinscheduler-alert-5dbbf7c55b-7b7f8   1/1     Running   0          45m
+dolphinscheduler-api-65b7b948bb-thlxg     1/1     Running   0          45m
+dolphinscheduler-master-0                 1/1     Running   0          45m
+dolphinscheduler-master-1                 1/1     Running   0          45m
+dolphinscheduler-master-2                 1/1     Running   0          45m
+dolphinscheduler-postgresql-0             1/1     Running   0          45m
+dolphinscheduler-worker-0                 1/1     Running   0          45m
+dolphinscheduler-worker-1                 1/1     Running   0          45m
+dolphinscheduler-worker-2                 1/1     Running   0          45m
+dolphinscheduler-zookeeper-0              1/1     Running   0          45m
+
+kubectl get deploy -n test
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+dolphinscheduler-alert   1/1     1            1           45m
+dolphinscheduler-api     1/1     1            1           45m
+
+kubectl scale --replicas=3 deploy dolphinscheduler-api -n test
+kubectl scale --replicas=6 sts dolphinscheduler-worker -n test
+
+kubectl get sts -n test
+NAME                          READY   AGE
+dolphinscheduler-master       3/3     44m
+dolphinscheduler-postgresql   1/1     44m
+dolphinscheduler-worker       3/3     44m
+dolphinscheduler-zookeeper    1/1     44m
