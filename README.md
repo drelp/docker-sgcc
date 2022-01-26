@@ -132,4 +132,6 @@ helm install dolphinscheduler .
 helm install dolphinscheduler . -n test
 
 kubectl port-forward --address 0.0.0.0 -n test svc/dolphinscheduler-api 12345:12345
+
+docker pull apache/dolphinscheduler:2.0.3
 ```
