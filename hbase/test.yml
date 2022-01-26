@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s.kuboard.cn/layer: ''
+    k8s.kuboard.cn/name: hbase
+  name: hbase
+  namespace: dmgeo-lib
+spec:
+  selector:
+    matchLabels:
+      k8s.kuboard.cn/layer: ''
+      k8s.kuboard.cn/name: hbase
+  template:
+    metadata:
+      labels:
+        k8s.kuboard.cn/layer: ''
+        k8s.kuboard.cn/name: hbase
+    spec:
+      containers:
+        - image: '192.168.145.28:1603/lego/hbase:2.2.6'
+          imagePullPolicy: IfNotPresent
+          name: hbase
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 9090
+              protocol: TCP
+            - containerPort: 2181
+              protocol: TCP
+            - containerPort: 2181
+              protocol: TCP
+            - containerPort: 16000
+              protocol: TCP
+            - containerPort: 16010
+              name: webui
+              protocol: TCP
+            - containerPort: 16020
+              protocol: TCP
+            - containerPort: 16030
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s.kuboard.cn/layer: ''
+    k8s.kuboard.cn/name: hbase
+  name: hbase
+  namespace: dmgeo-lib
+spec:
+  ports:
+    - name: hbase-webui
+      nodePort: 16010
+      port: 16010
+      protocol: TCP
+      targetPort: 16010
+  selector:
+    k8s.kuboard.cn/layer: ''
+    k8s.kuboard.cn/name: hbase
+  type: NodePort
