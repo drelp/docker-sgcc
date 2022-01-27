@@ -31,6 +31,8 @@ ssh-keygen -t rsa -C '1097692918@qq.com'
 
 https://hbase.apache.org/book.html
 http://hbase.org.cn/docs/32.html
+
+https://www.apache.org/dyn/closer.lua/hbase/2.0.3/hbase-2.0.3-bin.tar.gz
 ```
 
 ```
