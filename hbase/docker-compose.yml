@@ -15,6 +15,7 @@ services:
     ports:
       - 16000:16000
       - 16010:16010
+      - 2181:2181
     restart: always
 
   hbase-region1:
