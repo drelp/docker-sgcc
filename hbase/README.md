@@ -43,4 +43,5 @@ k8s hbase 集群
 hbase helm
 docker-compose hbase
 docker-compose zookeeper
+docker-compose hadoop
 ```
