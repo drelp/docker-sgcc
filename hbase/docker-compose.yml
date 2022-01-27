@@ -9,7 +9,7 @@ services:
     # 配置docker container和宿主机的端口映射
     ports:
       - 2181:2181
-      - 8081:8080
+      - 8080:8080
     # 配置docker container的环境变量
     environment:
       # 当前zk实例的id
