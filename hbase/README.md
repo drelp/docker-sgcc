@@ -6,6 +6,8 @@ sudo docker-compose -f docker-compose-distributed-local.yml up -d namenode
 sudo docker-compose -f docker-compose-distributed-local.yml up -d datanode
 sudo docker-compose -f docker-compose-distributed-local.yml down
 
+sudo docker build -t='yiluxiangbei/hbase:2.3.6' -f Dockerfile .
+
 http://10.50.10.27:16010/
 ```
 
@@ -18,6 +20,9 @@ docker run -itd         -p 8080:8080         -p 9090:9090         -p 2181:2181  
 https://github.com/warp-poke/hbase-helm
 
 ssh-keygen -t rsa -C '1097692918@qq.com'
+
+https://hbase.apache.org/book.html
+http://hbase.org.cn/docs/32.html
 ```
 
 ```
