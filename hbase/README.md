@@ -1,5 +1,12 @@
 ```shell
 sudo docker-compose -f docker-compose-distributed-local.yml up
+sudo docker-compose -f docker-compose-distributed-local.yml logs
+
+sudo docker-compose -f docker-compose-distributed-local.yml up -d namenode
+sudo docker-compose -f docker-compose-distributed-local.yml up -d datanode
+sudo docker-compose -f docker-compose-distributed-local.yml down
+
+http://10.50.10.27:16010/
 ```
 
 ```
