@@ -53,7 +53,7 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>hbase-master,hbase-region1,hbase-region2</value>
+    <value>zk1,zk2,zk3</value>
   </property>
   <property>
     <name>hbase.regionserver.restart.on.zk.expire</name>
