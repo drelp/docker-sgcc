@@ -23,7 +23,7 @@ RUN set -ex; \
 RUN find $HADOOP_HOME/ -maxdepth 1 -not -name 'lib' ! -path $HADOOP_HOME/ -exec rm -rf {} \;
 
 # hbase
-ENV HBASE_TGZ_URL=https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/stable/hbase-2.3.6-bin.tar.gz
+ENV HBASE_TGZ_URL=https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/stable/hbase-2.4.9-bin.tar.gz
 ENV HBASE_HOME=/opt/hbase
 ENV PATH=$HBASE_HOME/bin:$PATH
 RUN set -ex; \
