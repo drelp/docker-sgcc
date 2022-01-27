@@ -1,3 +1,7 @@
+```shell
+sudo docker-compose -f docker-compose-distributed-local.yml up
+```
+
 ```
 https://hub.docker.com/r/coomia/hbase2.2/tags?page=1&ordering=last_updated
 https://hub.docker.com/r/pierrezemb/hbase-docker
