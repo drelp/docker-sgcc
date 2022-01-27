@@ -6,7 +6,7 @@ sudo docker-compose -f docker-compose-distributed-local.yml up -d namenode
 sudo docker-compose -f docker-compose-distributed-local.yml up -d datanode
 sudo docker-compose -f docker-compose-distributed-local.yml down
 
-sudo docker build -t='yiluxiangbei/hbase:2.3.6' -f Dockerfile .
+sudo docker build -t='yiluxiangbei/hbase:2.4.9' -f Dockerfile .
 
 http://10.50.10.27:16010/
 ```
