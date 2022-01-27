@@ -18,4 +18,5 @@ elasticsearch 7.13.4
 k8s hbase
 k8s hbase 集群
 hbase helm
+docker-compose hbase
 ```
