@@ -8,6 +8,12 @@ sudo docker-compose -f docker-compose-distributed-local.yml down
 
 sudo docker build -t='yiluxiangbei/hbase:2.4.9' -f Dockerfile .
 
+sudo docker-compose up -d hbase-master
+sudo docker-compose stop hbase-master
+
+sudo docker-compose up -d
+sudo docker-compose down
+
 http://10.50.10.27:16010/
 ```
 

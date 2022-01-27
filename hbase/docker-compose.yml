@@ -7,7 +7,7 @@ services:
     environment:
       - HBASE_NODE_TYPE=master
     volumes:
-      - "./conf:/opt/hbase/conf"
+      # - "./conf:/opt/hbase/conf"
       - /etc/localtime:/etc/localtime
     networks:
       - sgcc-network
