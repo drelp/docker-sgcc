@@ -16,6 +16,7 @@ services:
       - 16000:16000
       - 16010:16010
       - 2181:2181
+    privileged: true
     restart: always
 
   hbase-region1:
@@ -32,6 +33,7 @@ services:
     ports:
       - 16020:16020
       - 16030:16030
+    privileged: true
     restart: always
 
   hbase-region2:
@@ -48,6 +50,7 @@ services:
     ports:
       - 16021:16020
       - 16031:16030
+    privileged: true
     restart: always
 
 networks:

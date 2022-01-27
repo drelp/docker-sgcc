@@ -13,6 +13,7 @@ sudo docker-compose stop hbase-master
 
 sudo docker-compose up -d
 sudo docker-compose down
+sudo docker-compose logs -f
 
 http://10.50.10.27:16010/
 ```
