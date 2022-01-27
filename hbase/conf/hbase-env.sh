@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+export JAVA_HOME=/usr/local/openjdk-8
+export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP="true"
+export LD_LIBRARY_PATH=${HADOOP_HOME}/lib/native:$LD_LIBRARY_PATH
+export HBASE_HEAPSIZE=1G
 #
 #/**
 # * Licensed to the Apache Software Foundation (ASF) under one

@@ -7,10 +7,14 @@ services:
     environment:
       - HBASE_NODE_TYPE=master
     volumes:
-      # - "./conf:/opt/hbase/conf"
+      - "./conf:/opt/hbase/conf"
+      - "./logs:/opt/hbase/logs"
       - /etc/localtime:/etc/localtime
     networks:
       - sgcc-network
+    ports:
+      - 16000:16000
+      - 16010:16010
     restart: always
 
   hbase-region1:
@@ -20,9 +24,13 @@ services:
       - HBASE_NODE_TYPE=region
     volumes:
       - "./conf:/opt/hbase/conf"
+      - "./logs:/opt/hbase/logs"
       - /etc/localtime:/etc/localtime
     networks:
       - sgcc-network
+    ports:
+      - 16020:16020
+      - 16030:16030
     restart: always
 
   hbase-region2:
@@ -32,9 +40,13 @@ services:
       - HBASE_NODE_TYPE=region
     volumes:
       - "./conf:/opt/hbase/conf"
+      - "./logs:/opt/hbase/logs"
       - /etc/localtime:/etc/localtime
     networks:
       - sgcc-network
+    ports:
+      - 16021:16020
+      - 16031:16030
     restart: always
 
 networks:

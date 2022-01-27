@@ -41,11 +41,23 @@
   -->
   <property>
     <name>hbase.cluster.distributed</name>
-    <value>false</value>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>hdfs://hbase-master:9000/hbase</value>
   </property>
   <property>
     <name>hbase.tmp.dir</name>
-    <value>./tmp</value>
+    <value>/opt/hbase/tmp/</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>hbase-master,hbase-region1,hbase-region2</value>
+  </property>
+  <property>
+    <name>hbase.regionserver.restart.on.zk.expire</name>
+    <value>true</value>
   </property>
   <property>
     <name>hbase.unsafe.stream.capability.enforce</name>
