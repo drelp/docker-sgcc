@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+
+  hbase-master:
+    image: yiluxiangbei/hbase:2.4.9
+    container_name: hbase-master
+    environment:
+      - HBASE_NODE_TYPE=master
+    volumes:
+      - "./conf:/opt/hbase/conf"
+      - /etc/localtime:/etc/localtime
+    networks:
+      - sgcc-network
+    restart: always
+
+  hbase-region1:
+    image: yiluxiangbei/hbase:2.4.9
+    container_name: hbase-region1
+    environment:
+      - HBASE_NODE_TYPE=region
+    volumes:
+      - "./conf:/opt/hbase/conf"
+      - /etc/localtime:/etc/localtime
+    networks:
+      - sgcc-network
+    restart: always
+
+  hbase-region2:
+    image: yiluxiangbei/hbase:2.4.9
+    container_name: hbase-region2
+    environment:
+      - HBASE_NODE_TYPE=region
+    volumes:
+      - "./conf:/opt/hbase/conf"
+      - /etc/localtime:/etc/localtime
+    networks:
+      - sgcc-network
+    restart: always
+
+networks:
+  sgcc-network:
+    external: true
