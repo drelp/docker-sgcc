@@ -32,6 +32,15 @@ Query id: 7b763dc1-1488-4b0a-8462-98346f5b090d
 select * from system.clusters\G
 
 CREATE DATABASE company_db ON CLUSTER 'company_cluster';
+
+CREATE TABLE company_db.events ON CLUSTER 'company_cluster' ( \
+    time DateTime, \
+    uid  Int64, \
+    type LowCardinality(String) \
+) \
+ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/table', '{replica}') \
+PARTITION BY toDate(time) \
+ORDER BY (uid);
 ```
 
 ```

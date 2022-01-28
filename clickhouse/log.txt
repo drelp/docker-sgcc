@@ -97,3 +97,33 @@ CREATE DATABASE company_db ON CLUSTER company_cluster
 └──────────────┴──────┴────────┴───────┴─────────────────────┴──────────────────┘
 
 4 rows in set. Elapsed: 0.370 sec.
+
+CREATE TABLE company_db.events ON CLUSTER 'company_cluster' ( \
+    time DateTime, \
+    uid  Int64, \
+    type LowCardinality(String) \
+) \
+ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/table', '{replica}') \
+PARTITION BY toDate(time) \
+ORDER BY (uid);
+
+CREATE TABLE company_db.events ON CLUSTER company_cluster
+(
+    `time` DateTime,
+    `uid` Int64,
+    `type` LowCardinality(String)
+)
+ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/table', '{replica}')
+PARTITION BY toDate(time)
+ORDER BY uid
+
+┌─host─────────┬─port─┬─status─┬─error─┬─num_hosts_remaining─┬─num_hosts_active─┐
+│ clickhouse01 │ 9000 │      0 │       │                   3 │                2 │
+│ clickhouse03 │ 9000 │      0 │       │                   2 │                2 │
+└──────────────┴──────┴────────┴───────┴─────────────────────┴──────────────────┘
+┌─host─────────┬─port─┬─status─┬─error─┬─num_hosts_remaining─┬─num_hosts_active─┐
+│ clickhouse02 │ 9000 │      0 │       │                   1 │                0 │
+│ clickhouse04 │ 9000 │      0 │       │                   0 │                0 │
+└──────────────┴──────┴────────┴───────┴─────────────────────┴──────────────────┘
+
+4 rows in set. Elapsed: 0.384 sec.
