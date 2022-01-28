@@ -3,4 +3,17 @@ ClickHouse client version 21.12.3.32 (official build).
 Connecting to localhost:9000 as user default.
 Connected to ClickHouse server version 21.12.3 revision 54452.
 
-f27bbe83992e :)
+f27bbe83992e :)show databases;
+
+               SHOW DATABASES
+
+               Query id: 7b763dc1-1488-4b0a-8462-98346f5b090d
+
+               ┌─name───────────────┐
+               │ INFORMATION_SCHEMA │
+               │ default            │
+               │ information_schema │
+               │ system             │
+               └────────────────────┘
+
+               4 rows in set. Elapsed: 0.006 sec.
