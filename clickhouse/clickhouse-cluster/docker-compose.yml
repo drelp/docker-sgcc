@@ -7,7 +7,6 @@ services:
     networks:
       clickhouse-network:
         ipv4_address: 172.23.0.10
-
   clickhouse01:
     image: yandex/clickhouse-server:20.4
     container_name: clickhouse01
@@ -19,11 +18,9 @@ services:
       - "127.0.0.1:8123:8123"
       - "127.0.0.1:9000:9000"
     volumes:
-      - ./data/clickhouse01/:/var/lib/clickhouse
-      - ./conf/clickhouse01:/etc/clickhouse-server
+      - ${PWD}/clickhouse01:/etc/clickhouse-server
     depends_on:
       - zookeeper
-
   clickhouse02:
     image: yandex/clickhouse-server:20.4
     container_name: clickhouse02
@@ -32,11 +29,9 @@ services:
       clickhouse-network:
         ipv4_address: 172.23.0.12
     volumes:
-      - ./data/clickhouse02/:/var/lib/clickhouse
-      - ./conf/clickhouse02:/etc/clickhouse-server
+      - ${PWD}/clickhouse02:/etc/clickhouse-server
     depends_on:
       - zookeeper
-
   clickhouse03:
     image: yandex/clickhouse-server:20.4
     container_name: clickhouse03
@@ -45,11 +40,9 @@ services:
       clickhouse-network:
         ipv4_address: 172.23.0.13
     volumes:
-      - ./data/clickhouse03/:/var/lib/clickhouse
-      - ./conf/clickhouse03:/etc/clickhouse-server
+      - ${PWD}/clickhouse03:/etc/clickhouse-server
     depends_on:
       - zookeeper
-
   clickhouse04:
     image: yandex/clickhouse-server:20.4
     container_name: clickhouse04
@@ -58,8 +51,7 @@ services:
       clickhouse-network:
         ipv4_address: 172.23.0.14
     volumes:
-      - ./data/clickhouse04/:/var/lib/clickhouse
-      - ./conf/clickhouse04:/etc/clickhouse-server
+      - ${PWD}/clickhouse04:/etc/clickhouse-server
     depends_on:
       - zookeeper
 
