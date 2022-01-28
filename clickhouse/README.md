@@ -19,6 +19,14 @@ docker run -d -p 8080:80 spoonest/clickhouse-tabix-web-client
 http://10.50.10.27:8090/
 http://ch_server:8123
 default
+
+PASSWORD=$(base64 < /dev/urandom | head -c8); echo "123456"; echo -n "123456" | sha256sum | tr -d '-'
+123456
+8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
+
+PASSWORD=$(base64 < /dev/urandom | head -c8); echo "888888"; echo -n "888888" | sha256sum | tr -d '-'
+888888
+92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e
 ```
 
 ```shell

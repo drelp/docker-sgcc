@@ -65,7 +65,8 @@
                  Execute: PASSWORD=$(base64 < /dev/urandom | head -c8); echo "$PASSWORD"; echo -n "$PASSWORD" | sha1sum | tr -d '-' | xxd -r -p | sha1sum | tr -d '-'
                  In first line will be password and in second - corresponding double SHA1.
             -->
-            <password></password>
+            <!--<password></password>-->
+            <password_sha256_hex>8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</password_sha256_hex>
 
             <!-- List of networks with open access.
 
@@ -93,6 +94,7 @@
 
             <!-- Settings profile for user. -->
             <profile>default</profile>
+            <!--<profile>readonly</profile>-->
 
             <!-- Quota for user. -->
             <quota>default</quota>
@@ -100,6 +102,14 @@
             <!-- User can create other users and grant rights to them. -->
             <!-- <access_management>1</access_management> -->
         </default>
+        <root>
+            <password_sha256_hex>92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e</password_sha256_hex>
+            <networks incl="networks" replace="replace">
+                <ip>::/0</ip>
+            </networks>
+            <profile>default</profile>
+            <quota>default</quota>
+        </root>
     </users>
 
     <!-- Quotas. -->
