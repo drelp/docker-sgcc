@@ -29,16 +29,9 @@ Query id: 7b763dc1-1488-4b0a-8462-98346f5b090d
 
 4 rows in set. Elapsed: 0.006 sec.
 
-CREATE TABLE t1 ON CLUSTER bigdata
-(
-    `ts` DateTime,
-    `uid` String,
-    `biz` String
-)
-ENGINE = ReplicatedMergeTree('/clickhouse/test1/tables/{shard}/t1', '{replica}')
-PARTITION BY toYYYYMMDD(ts)
-ORDER BY ts
-SETTINGS index_granularity = 8192;
+select * from system.clusters\G
+
+CREATE DATABASE company_db ON CLUSTER 'company_cluster';
 ```
 
 ```
