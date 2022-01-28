@@ -78,9 +78,9 @@
 
     <!-- marcos每个实例配置不一样 分片1, 副本1 -->
     <macros>
-        <layer>02</layer>
+        <layer>01</layer>
         <shard>02</shard>
-        <replica>cluster02-02-2</replica>
+        <replica>cluster01-02-2</replica>
     </macros>
 
     <networks>
