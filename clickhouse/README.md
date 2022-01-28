@@ -5,10 +5,12 @@ sudo docker-compose exec ch_server clickhouse-client
 docker run -d --name clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server
 docker cp clickhouse-server:/etc/clickhouse-server/ clickhouse-server
 
+make config
+make config up
 sudo docker-compose -f docker-compose-local.yml up
 sudo docker-compose -f docker-compose-local.yml up -d
 
-sudo docker-compose -f docker-compose-local.yml exec cs01-01 clickhouse-client
+sudo docker-compose -f docker-compose-local.yml exec clickhouse01 clickhouse-client
 ```
 
 ```shell
