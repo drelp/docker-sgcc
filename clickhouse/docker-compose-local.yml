@@ -1,0 +1,104 @@
+version: '3.1'
+services:
+  cs01-01:
+    image: yandex/clickhouse-server
+    restart: always
+    container_name: cs01-01
+    ports:
+      - 8000:9000
+      - 8123:8123
+      - 9009:9009
+    volumes:
+      - ./db/clickhouse01-01/:/var/lib/clickhouse
+      - ./conf/clickhouse-server01-01/:/etc/clickhouse-server/
+    extra_hosts:
+      - "server01:10.50.10.27"
+      - "server02:10.50.10.27"
+      - "server03:10.50.10.27"
+    hostname: server01
+
+  cs01-02:
+    image: yandex/clickhouse-server
+    restart: always
+    container_name: cs01-02
+    ports:
+      - 9001:9000
+      - 8124:8123
+      - 9010:9009
+    volumes:
+      - ./db/clickhouse01-02/:/var/lib/clickhouse
+      - ./conf/clickhouse-server01-02/:/etc/clickhouse-server/
+    extra_hosts:
+      - "server01:10.50.10.27"
+      - "server02:10.50.10.27"
+      - "server03:10.50.10.27"
+    hostname: server01
+
+  cs02-01:
+    image: yandex/clickhouse-server
+    restart: always
+    container_name: cs02-01
+    ports:
+      - 9002:9000
+      - 8125:8123
+      - 9011:9009
+    volumes:
+      - ./db/clickhouse02-01/:/var/lib/clickhouse
+      - ./conf/clickhouse-server02-01/:/etc/clickhouse-server/
+    extra_hosts:
+      - "server01:10.50.10.27"
+      - "server02:10.50.10.27"
+      - "server03:10.50.10.27"
+    hostname: server02
+
+  cs02-02:
+    image: yandex/clickhouse-server
+    restart: always
+    container_name: cs02-02
+    ports:
+      - 9003:9000
+      - 8126:8123
+      - 9012:9009
+    volumes:
+      - ./db/clickhouse02-02/:/var/lib/clickhouse
+      - ./conf/clickhouse-server02-02/:/etc/clickhouse-server/
+    extra_hosts:
+      - "server01:10.50.10.27"
+      - "server02:10.50.10.27"
+      - "server03:10.50.10.27"
+    hostname: server02
+
+  cs03-01:
+    image: yandex/clickhouse-server
+    restart: always
+    container_name: cs03-01
+    ports:
+      - 9004:9000
+      - 8127:8123
+      - 9013:9009
+    volumes:
+      - ./db/clickhouse03-01/:/var/lib/clickhouse
+      - ./conf/clickhouse-server03-01/:/etc/clickhouse-server/
+    extra_hosts:
+      - "server01:10.50.10.27"
+      - "server02:10.50.10.27"
+      - "server03:10.50.10.27"
+    hostname: server02
+
+  cs03-02:
+    image: yandex/clickhouse-server
+    restart: always
+    container_name: cs03-02
+    ports:
+      - 9005:9000
+      - 8128:8123
+      - 9014:9009
+    volumes:
+      - ./db/clickhouse03-02/:/var/lib/clickhouse
+      - ./conf/clickhouse-server03-02/:/etc/clickhouse-server/
+    extra_hosts:
+      - "server01:10.50.10.27"
+      - "server02:10.50.10.27"
+      - "server03:10.50.10.27"
+    hostname: server03
+
