@@ -13,6 +13,8 @@ sudo docker-compose -f docker-compose-local.yml up
 sudo docker-compose -f docker-compose-local.yml up -d
 
 sudo docker-compose -f docker-compose-local.yml exec clickhouse01 clickhouse-client
+
+docker run -d -p 8080:80 spoonest/clickhouse-tabix-web-client
 ```
 
 ```shell

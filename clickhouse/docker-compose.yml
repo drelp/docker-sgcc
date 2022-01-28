@@ -22,7 +22,7 @@ services:
   web-client:
     image: spoonest/clickhouse-tabix-web-client
     ports:
-      - "8080:80"
+      - "8090:80"
     networks:
       - clickhouse-network
     depends_on:
