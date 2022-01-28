@@ -27,3 +27,9 @@ Query id: 7b763dc1-1488-4b0a-8462-98346f5b090d
 ```
 docker-compose clickhouse
 ```
+
+```
+layer：复制表的层级。在大型集群（比如ClickHouse的发源地Yandex.Metrica）中可能会有多级备份，不过我们自然只有1级了。
+shard：实例所持有的分片ID。
+replica：实例所持有的副本ID
+```
