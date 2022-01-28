@@ -130,3 +130,28 @@ ORDER BY uid
 
 CREATE TABLE company_db.events_distr ON CLUSTER 'company_cluster' AS company_db.events \
 ENGINE = Distributed('company_cluster', company_db, events, uid);
+CREATE TABLE company_db.events_distr ON CLUSTER company_cluster AS company_db.events
+ENGINE = Distributed('company_cluster', company_db, events, uid)
+
+┌─host─────────┬─port─┬─status─┬─error─┬─num_hosts_remaining─┬─num_hosts_active─┐
+│ clickhouse01 │ 9000 │      0 │       │                   3 │                0 │
+│ clickhouse02 │ 9000 │      0 │       │                   2 │                0 │
+│ clickhouse04 │ 9000 │      0 │       │                   1 │                0 │
+│ clickhouse03 │ 9000 │      0 │       │                   0 │                0 │
+└──────────────┴──────┴────────┴───────┴─────────────────────┴──────────────────┘
+
+4 rows in set. Elapsed: 0.124 sec.
+
+INSERT INTO company_db.events_distr VALUES \
+    ('2020-01-01 10:00:00', 100, 'view'), \
+    ('2020-01-01 10:05:00', 101, 'view'), \
+    ('2020-01-01 11:00:00', 100, 'contact'), \
+    ('2020-01-01 12:10:00', 101, 'view'), \
+    ('2020-01-02 08:10:00', 100, 'view'), \
+    ('2020-01-03 13:00:00', 103, 'view');
+
+INSERT INTO company_db.events_distr VALUES
+
+Ok.
+
+6 rows in set. Elapsed: 0.052 sec.
