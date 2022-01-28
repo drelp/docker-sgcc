@@ -8,8 +8,8 @@ services:
       clickhouse-network:
         ipv4_address: 172.23.0.10
     volumes:
-      - ./zookeeper/data:/data
-      - ./zookeeper/datalog:/datalog
+      - ./zk/data:/data
+      - ./zk/datalog:/datalog
 
   clickhouse01:
     image: yandex/clickhouse-server:20.4
