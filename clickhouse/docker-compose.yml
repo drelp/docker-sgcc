@@ -25,6 +25,8 @@ services:
       - "8080:80"
     networks:
       - clickhouse-network
+    depends_on:
+      - ch_server
 
 networks:
   clickhouse-network:
