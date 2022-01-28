@@ -26,6 +26,7 @@ Query id: 7b763dc1-1488-4b0a-8462-98346f5b090d
 
 ```
 docker-compose clickhouse
+clickhouse macros
 ```
 
 ```
