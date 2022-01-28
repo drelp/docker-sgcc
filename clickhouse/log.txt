@@ -130,6 +130,7 @@ ORDER BY uid
 
 CREATE TABLE company_db.events_distr ON CLUSTER 'company_cluster' AS company_db.events \
 ENGINE = Distributed('company_cluster', company_db, events, uid);
+
 CREATE TABLE company_db.events_distr ON CLUSTER company_cluster AS company_db.events
 ENGINE = Distributed('company_cluster', company_db, events, uid)
 
@@ -155,3 +156,42 @@ INSERT INTO company_db.events_distr VALUES
 Ok.
 
 6 rows in set. Elapsed: 0.052 sec.
+
+
+select * from events;
+
+SELECT *
+FROM events
+
+┌────────────────time─┬─uid─┬─type─┐
+│ 2020-01-02 08:10:00 │ 100 │ view │
+└─────────────────────┴─────┴──────┘
+┌────────────────time─┬─uid─┬─type────┐
+│ 2020-01-01 10:00:00 │ 100 │ view    │
+│ 2020-01-01 11:00:00 │ 100 │ contact │
+└─────────────────────┴─────┴─────────┘
+
+3 rows in set. Elapsed: 0.004 sec.
+
+
+select * from events_distr;
+
+SELECT *
+FROM events_distr
+
+┌────────────────time─┬─uid─┬─type─┐
+│ 2020-01-02 08:10:00 │ 100 │ view │
+└─────────────────────┴─────┴──────┘
+┌────────────────time─┬─uid─┬─type────┐
+│ 2020-01-01 10:00:00 │ 100 │ view    │
+│ 2020-01-01 11:00:00 │ 100 │ contact │
+└─────────────────────┴─────┴─────────┘
+┌────────────────time─┬─uid─┬─type─┐
+│ 2020-01-03 13:00:00 │ 103 │ view │
+└─────────────────────┴─────┴──────┘
+┌────────────────time─┬─uid─┬─type─┐
+│ 2020-01-01 10:05:00 │ 101 │ view │
+│ 2020-01-01 12:10:00 │ 101 │ view │
+└─────────────────────┴─────┴──────┘
+
+6 rows in set. Elapsed: 0.010 sec.
