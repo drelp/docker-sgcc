@@ -127,3 +127,6 @@ ORDER BY uid
 └──────────────┴──────┴────────┴───────┴─────────────────────┴──────────────────┘
 
 4 rows in set. Elapsed: 0.384 sec.
+
+CREATE TABLE company_db.events_distr ON CLUSTER 'company_cluster' AS company_db.events \
+ENGINE = Distributed('company_cluster', company_db, events, uid);
