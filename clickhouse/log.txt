@@ -1,0 +1,6 @@
+sudo docker-compose exec ch_server clickhouse-client
+ClickHouse client version 21.12.3.32 (official build).
+Connecting to localhost:9000 as user default.
+Connected to ClickHouse server version 21.12.3 revision 54452.
+
+f27bbe83992e :)
