@@ -7,6 +7,7 @@ docker cp clickhouse-server:/etc/clickhouse-server/ clickhouse-server
 
 make config
 make config up
+docker-compose -f docker-compose-local.yml rm
 sudo docker-compose -f docker-compose-local.yml up
 sudo docker-compose -f docker-compose-local.yml up -d
 
@@ -41,6 +42,9 @@ CREATE TABLE company_db.events ON CLUSTER 'company_cluster' ( \
 ENGINE = ReplicatedMergeTree('/clickhouse/tables/{cluster}/{shard}/table', '{replica}') \
 PARTITION BY toDate(time) \
 ORDER BY (uid);
+
+CREATE TABLE company_db.events_distr ON CLUSTER 'company_cluster' AS company_db.events \
+ENGINE = Distributed('company_cluster', company_db, events, uid);
 ```
 
 ```
