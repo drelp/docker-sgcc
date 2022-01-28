@@ -17,3 +17,237 @@ f27bbe83992e :)show databases;
                └────────────────────┘
 
                4 rows in set. Elapsed: 0.006 sec.
+
+select * from system.clusters;
+
+SELECT *
+FROM system.clusters
+
+Query id: 4caa351b-ed8c-42ce-9481-a8fe2dbdb456
+
+┌─cluster──────────────────────────────────────┬─shard_num─┬─shard_weight─┬─replica_num─┬─host_name─┬─host_address─┬─port─┬─is_local─┬─user────┬─default_database─┬─errors_count─┬─slowdowns_count─┬─estimated_recovery_time─┐
+│ test_cluster_two_shards                      │         1 │            1 │           1 │ 127.0.0.1 │ 127.0.0.1    │ 9000 │        1 │ default │
+     │            0 │               0 │                       0 │
+│ test_cluster_two_shards                      │         2 │            1 │           1 │ 127.0.0.2 │ 127.0.0.2    │ 9000 │        0 │ default │
+     │            0 │               0 │                       0 │
+│ test_cluster_two_shards_internal_replication │         1 │            1 │           1 │ 127.0.0.1 │ 127.0.0.1    │ 9000 │        1 │ default │
+     │            0 │               0 │                       0 │
+│ test_cluster_two_shards_internal_replication │         2 │            1 │           1 │ 127.0.0.2 │ 127.0.0.2    │ 9000 │        0 │ default │
+     │            0 │               0 │                       0 │
+│ test_cluster_two_shards_localhost            │         1 │            1 │           1 │ localhost │ 127.0.0.1    │ 9000 │        1 │ default │
+     │            0 │               0 │                       0 │
+│ test_cluster_two_shards_localhost            │         2 │            1 │           1 │ localhost │ 127.0.0.1    │ 9000 │        1 │ default │
+     │            0 │               0 │                       0 │
+│ test_shard_localhost                         │         1 │            1 │           1 │ localhost │ 127.0.0.1    │ 9000 │        1 │ default │
+     │            0 │               0 │                       0 │
+│ test_shard_localhost_secure                  │         1 │            1 │           1 │ localhost │ 127.0.0.1    │ 9440 │        0 │ default │
+     │            0 │               0 │                       0 │
+│ test_unavailable_shard                       │         1 │            1 │           1 │ localhost │ 127.0.0.1    │ 9000 │        1 │ default │
+     │            0 │               0 │                       0 │
+│ test_unavailable_shard                       │         2 │            1 │           1 │ localhost │ 127.0.0.1    │    1 │        0 │ default │
+     │            0 │               0 │                       0 │
+└──────────────────────────────────────────────┴───────────┴──────────────┴─────────────┴───────────┴──────────────┴──────┴──────────┴─────────┴──────────────────┴──────────────┴─────────────────┴─────────────────────────┘
+
+10 rows in set. Elapsed: 0.083 sec.
+
+select * from system.clusters\G
+
+select * from system.clusters\G
+
+SELECT *
+FROM system.clusters
+
+Query id: 6afee0be-8aad-4462-b4ae-0c975b079545
+
+Row 1:
+──────
+cluster:                 test_cluster_two_shards
+shard_num:               1
+shard_weight:            1
+replica_num:             1
+host_name:               127.0.0.1
+host_address:            127.0.0.1
+port:                    9000
+is_local:                1
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 2:
+──────
+cluster:                 test_cluster_two_shards
+shard_num:               2
+shard_weight:            1
+replica_num:             1
+host_name:               127.0.0.2
+host_address:            127.0.0.2
+port:                    9000
+is_local:                0
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 3:
+──────
+cluster:                 test_cluster_two_shards_internal_replication
+shard_num:               1
+shard_weight:            1
+replica_num:             1
+host_name:               127.0.0.1
+host_address:            127.0.0.1
+port:                    9000
+is_local:                1
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 4:
+──────
+cluster:                 test_cluster_two_shards_internal_replication
+shard_num:               2
+shard_weight:            1
+replica_num:             1
+host_name:               127.0.0.2
+host_address:            127.0.0.2
+port:                    9000
+is_local:                0
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 5:
+──────
+cluster:                 test_cluster_two_shards_localhost
+shard_num:               1
+shard_weight:            1
+replica_num:             1
+host_name:               localhost
+host_address:            127.0.0.1
+port:                    9000
+is_local:                1
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 6:
+──────
+cluster:                 test_cluster_two_shards_localhost
+shard_num:               2
+shard_weight:            1
+replica_num:             1
+host_name:               localhost
+host_address:            127.0.0.1
+port:                    9000
+is_local:                1
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 7:
+──────
+cluster:                 test_shard_localhost
+shard_num:               1
+shard_weight:            1
+replica_num:             1
+host_name:               localhost
+host_address:            127.0.0.1
+port:                    9000
+is_local:                1
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 8:
+──────
+cluster:                 test_shard_localhost_secure
+shard_num:               1
+shard_weight:            1
+replica_num:             1
+host_name:               localhost
+host_address:            127.0.0.1
+port:                    9440
+is_local:                0
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 9:
+───────
+cluster:                 test_unavailable_shard
+shard_num:               1
+shard_weight:            1
+replica_num:             1
+host_name:               localhost
+host_address:            127.0.0.1
+port:                    9000
+is_local:                1
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+Row 10:
+───────
+cluster:                 test_unavailable_shard
+shard_num:               2
+shard_weight:            1
+replica_num:             1
+host_name:               localhost
+host_address:            127.0.0.1
+port:                    1
+is_local:                0
+user:                    default
+default_database:
+errors_count:            0
+slowdowns_count:         0
+estimated_recovery_time: 0
+
+10 rows in set. Elapsed: 0.061 sec.
+
+
+CREATE TABLE t1 ON CLUSTER bigdata
+            (
+                `ts` DateTime,
+                `uid` String,
+                `biz` String
+            )
+            ENGINE = ReplicatedMergeTree('/clickhouse/test1/tables/{shard}/t1', '{replica}')
+            PARTITION BY toYYYYMMDD(ts)
+            ORDER BY ts
+            SETTINGS index_granularity = 8192;
+
+CREATE TABLE t1 ON CLUSTER bigdata
+(
+    `ts` DateTime,
+    `uid` String,
+    `biz` String
+)
+ENGINE = ReplicatedMergeTree('/clickhouse/test1/tables/{shard}/t1', '{replica}')
+PARTITION BY toYYYYMMDD(ts)
+ORDER BY ts
+SETTINGS index_granularity = 8192
+
+Query id: 6dfa3751-e1fe-404b-a377-3d8bd6efae05
+
+
+0 rows in set. Elapsed: 0.156 sec.
+
+Received exception from server (version 21.12.3):
+Code: 170. DB::Exception: Received from localhost:9000. DB::Exception: Requested cluster 'bigdata' not found. (BAD_GET)

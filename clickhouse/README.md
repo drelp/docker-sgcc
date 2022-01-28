@@ -7,6 +7,8 @@ docker cp clickhouse-server:/etc/clickhouse-server/ clickhouse-server
 
 sudo docker-compose -f docker-compose-local.yml up
 sudo docker-compose -f docker-compose-local.yml up -d
+
+sudo docker-compose -f docker-compose-local.yml exec cs01-01 clickhouse-client
 ```
 
 ```shell
@@ -24,6 +26,17 @@ Query id: 7b763dc1-1488-4b0a-8462-98346f5b090d
 └────────────────────┘
 
 4 rows in set. Elapsed: 0.006 sec.
+
+CREATE TABLE t1 ON CLUSTER bigdata
+(
+    `ts` DateTime,
+    `uid` String,
+    `biz` String
+)
+ENGINE = ReplicatedMergeTree('/clickhouse/test1/tables/{shard}/t1', '{replica}')
+PARTITION BY toYYYYMMDD(ts)
+ORDER BY ts
+SETTINGS index_granularity = 8192;
 ```
 
 ```
@@ -32,6 +45,7 @@ clickhouse macros
 docker-compose zookeeper
 
 https://www.jianshu.com/p/5f7809b1965e
+https://github.com/tabixio/tabix
 ```
 
 ```
