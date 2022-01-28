@@ -9,7 +9,7 @@ services:
       - 8123:8123
       - 9009:9009
     volumes:
-      - ./db/clickhouse01-01/:/var/lib/clickhouse
+      - ./data/clickhouse01-01/:/var/lib/clickhouse
       - ./conf/clickhouse-server01-01/:/etc/clickhouse-server/
     extra_hosts:
       - "server01:10.50.10.27"
@@ -26,7 +26,7 @@ services:
       - 8124:8123
       - 9010:9009
     volumes:
-      - ./db/clickhouse01-02/:/var/lib/clickhouse
+      - ./data/clickhouse01-02/:/var/lib/clickhouse
       - ./conf/clickhouse-server01-02/:/etc/clickhouse-server/
     extra_hosts:
       - "server01:10.50.10.27"
@@ -43,7 +43,7 @@ services:
       - 8125:8123
       - 9011:9009
     volumes:
-      - ./db/clickhouse02-01/:/var/lib/clickhouse
+      - ./data/clickhouse02-01/:/var/lib/clickhouse
       - ./conf/clickhouse-server02-01/:/etc/clickhouse-server/
     extra_hosts:
       - "server01:10.50.10.27"
@@ -60,7 +60,7 @@ services:
       - 8126:8123
       - 9012:9009
     volumes:
-      - ./db/clickhouse02-02/:/var/lib/clickhouse
+      - ./data/clickhouse02-02/:/var/lib/clickhouse
       - ./conf/clickhouse-server02-02/:/etc/clickhouse-server/
     extra_hosts:
       - "server01:10.50.10.27"
@@ -77,7 +77,7 @@ services:
       - 8127:8123
       - 9013:9009
     volumes:
-      - ./db/clickhouse03-01/:/var/lib/clickhouse
+      - ./data/clickhouse03-01/:/var/lib/clickhouse
       - ./conf/clickhouse-server03-01/:/etc/clickhouse-server/
     extra_hosts:
       - "server01:10.50.10.27"
@@ -94,7 +94,7 @@ services:
       - 8128:8123
       - 9014:9009
     volumes:
-      - ./db/clickhouse03-02/:/var/lib/clickhouse
+      - ./data/clickhouse03-02/:/var/lib/clickhouse
       - ./conf/clickhouse-server03-02/:/etc/clickhouse-server/
     extra_hosts:
       - "server01:10.50.10.27"
