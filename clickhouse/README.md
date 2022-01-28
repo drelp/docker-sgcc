@@ -29,6 +29,8 @@ PASSWORD=$(base64 < /dev/urandom | head -c8); echo "123456"; echo -n "123456" | 
 PASSWORD=$(base64 < /dev/urandom | head -c8); echo "888888"; echo -n "888888" | sha256sum | tr -d '-'
 888888
 92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e
+
+hue
 ```
 
 ```shell
