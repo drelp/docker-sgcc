@@ -186,6 +186,11 @@
     <listen_host>127.0.0.1</listen_host>
     -->
 
+    <include_from>/etc/clickhouse-server/metrika.xml</include_from>
+
+    <listen_host>0.0.0.0</listen_host>
+    <listen_host>127.0.0.1</listen_host>
+
     <!-- Don't exit if IPv6 or IPv4 networks are unavailable while trying to listen. -->
     <!-- <listen_try>0</listen_try> -->
 
