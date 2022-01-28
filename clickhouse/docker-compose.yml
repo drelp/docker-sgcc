@@ -19,13 +19,6 @@ services:
     networks:
       - clickhouse-network
 
-  ch_tabix:
-    image: spoonest/clickhouse-tabix-web-client
-    ports:
-      - "8080:80"
-    networks:
-      - clickhouse-network
-
 networks:
   clickhouse-network:
     driver: bridge
