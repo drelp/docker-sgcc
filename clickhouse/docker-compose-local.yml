@@ -169,3 +169,6 @@ services:
     networks:
       - sgcc-network
 
+networks:
+  sgcc-network:
+    external: true
