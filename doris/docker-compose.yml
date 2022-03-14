@@ -158,7 +158,10 @@ services:
     networks:
       - sgcc-network
     environment:
-      MONGODB_URL: "mongodb://root:123456@sgcc-mongodb:27017"
+      MONGODB_HOST: sgcc-mongodb
+      MONGODB_PORT: 27017
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: 123456
 
   sgcc-mysql:
     image: yiluxiangbei/mysql:5.7.25
