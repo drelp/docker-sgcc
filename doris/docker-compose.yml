@@ -149,6 +149,17 @@ services:
     environment:
       ME_CONFIG_MONGODB_URL: "mongodb://root:123456@sgcc-mongodb:27017"
 
+  sgcc-mongodb-bi-connector:
+    image: ryanhs/mongodb-bi-connector:latest
+    container_name: mongodb-bi-connector
+    restart: always
+    ports:
+      - 3311:3307
+    networks:
+      - sgcc-network
+    environment:
+      MONGODB_URL: "mongodb://root:123456@sgcc-mongodb:27017"
+
   sgcc-mysql:
     image: yiluxiangbei/mysql:5.7.25
     container_name: sgcc-mysql
