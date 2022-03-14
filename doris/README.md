@@ -61,6 +61,11 @@ sudo docker-compose up -d sgcc-mongo-express
 sudo docker-compose stop sgcc-mongo-express
 sudo docker-compose rm sgcc-mongo-express
 
+sudo docker-compose up sgcc-mongodb-bi-connector
+sudo docker-compose up -d sgcc-mongodb-bi-connector
+sudo docker-compose stop sgcc-mongodb-bi-connector
+sudo docker-compose rm sgcc-mongodb-bi-connector
+
 sudo docker-compose up sgcc-mysql
 sudo docker-compose up -d sgcc-mysql
 sudo docker-compose stop sgcc-mysql
