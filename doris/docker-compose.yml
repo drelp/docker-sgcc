@@ -150,7 +150,7 @@ services:
       ME_CONFIG_MONGODB_URL: "mongodb://root:123456@sgcc-mongodb:27017"
 
   sgcc-mongodb-bi-connector:
-    image: ryanhs/mongodb-bi-connector:latest
+    image: yiluxiangbei/mongodb-bi-connector:v2.14.4
     container_name: mongodb-bi-connector
     restart: always
     ports:
