@@ -160,6 +160,7 @@ helm dependency update .
 helm install dolphinscheduler .
 
 helm install dolphinscheduler . -n test
+helm uninstall dolphinscheduler -n test
 
 helm uninstall dolphinscheduler -n test
 kubectl delete pvc -l app.kubernetes.io/instance=dolphinscheduler
